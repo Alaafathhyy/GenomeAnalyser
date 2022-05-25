@@ -1,0 +1,68 @@
+<html>
+
+    <p id="UserID"></p>
+
+    <form action="action.php" method="post" id="geneFormInfo">
+        <fieldset>
+            <legend>Biological Information</legend>
+            <label for="Gname">Gene Name:</label><br>
+            <input type="text" name="GName" id="GName" /><br>
+
+            <label for="GDisc"> Gene Discreption:</label><br>
+            <input type="text" name="GDes" id="GDes" /><br>
+
+            <label for="Organism"> Organism :</label><br>
+            <input type="text" name="Organism" id="Organism" /><br>
+
+            <label for="Organism"> Organism Discreption :</label><br>
+            <input type="text" name="OrgDes" id="OrgDes" /><br>
+
+            <label for="GSeq"> Gene Sequence:</label><br>
+            <textarea name="GSeq" placeholder="Enter your Sequence"></textarea><br>
+            <input type="submit" name="Insert" id="Insert" value="Insert" /><br><br>
+        </fieldset>
+    
+    </form>
+    <form id="fastaFileForm" action="fastaAction.php" method="post" enctype="multipart/form-data" target="_blank">
+        <fieldset>
+            <h2>Upload File</h2>
+            <h4 for="uploadedfile">Select File :</h4>
+            <input type="file" id="uploaded" name="uploadedfile" onchange="validateFile()">
+
+        
+        </fieldset>
+    </form>
+    
+    <div class="container">
+        <h1> Choose what function you want to apply</h1>
+            <input type="checkbox" name="Biological_Functions[]" id="1"
+                    value="GC"><label for="1">GC percent </label>
+            
+            <input type="checkbox" name="Biological_Functions[]" id="2"
+                    value="Reversee"><label for="2">Reversee</label>
+            
+            <input type="checkbox" name="Biological_Functions[]" id="3"
+                    value="Complement"><label for="3">Complement</label>
+            
+            <input type="checkbox" name="Biological_Functions[]" id="4"
+                    value="Reverse_complement"><label for="4">Reverse_complement</label>
+            
+        
+            <input type="checkbox" name="Biological_Functions[]" id="5"
+                    value="Temperature"><label for="5">Temperature</label>
+            
+            <input type="checkbox" name="Biological_Functions[]" id="6"
+                    value="RNA"><label for="6">Transcribe</label>
+            
+            <input type="checkbox" name="Biological_Functions[]" id="7"
+                    value="Portein"><label for="7">Translate</label>
+            
+        
+        <hr />
+        <input type="reset" name="reset" value="Reset">
+        <input type="submit" id = "submit" name="submit" value="Submit" >
+    </div>
+
+
+    <script src="validate.js"></script>
+</html>
