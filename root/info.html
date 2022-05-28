@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <link href="styling.css" rel="stylesheet">
+    <title>Sign In</title>
+</head>
+
+<body>
+    <div class="login-box" style="width: 600px;">
+        <h1>Welcome to Genome Analyser</h1>
+        <h2>Update Information</h2>
+        <form id="info.php" method="post" action="info.php">
+
+            <div class="user-box info">
+                <input type="text" name="name" id="name" maxlength="20">
+                <label for="name" class="lab">New Name</label>
+            </div>
+
+            <div class="user-box info" style="left: 15%;">
+                <input type="text" name="email" id="email" />
+                <label for="email" class="lab">New Email</label>
+            </div>
+
+            <div class="user-box info">
+                <input type="password" name="oldpassword" id="oldpassword" />
+                <label for="oldpassword" class="lab">Old Password</label>
+            </div>
+
+            <div class="user-box info" style="left: 15%;">
+                <input type="password" name="password" id="password" />
+                <label for="password" class="lab">New Password</label>
+            </div>
+
+            <div class="user-box info">
+                <input type="tel" name="phone" id="phone"  pattern="^01[0-2,5]{1}[0-9]{8}$" />
+                <label for="phone" class="lab">New Phone Number <br><span style="color:gray ; font-size: 10px;"> Format: 01234567890 </span></label>
+            </div>
+
+            <button type="submit" name="Update" value=sumbit class="btn" style="display: block;"><span></span><span></span><span></span><span></span>Upadate My Account</button>
+            <button type="submit" name="delAcc" value=delAcc class="btn"><span></span><span></span><span></span><span></span>Delete My Account </button>
+
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,10 +1,14 @@
 <html>
 
-    <p id="UserID"></p>
+<head>
+<h1> WELCOME !</h1>
+</head>
+<body>
+    <a href="info.html?id"> Update Personal info</a><br><br>
 
-    <form action="action.php" method="post" id="geneFormInfo">
-        <fieldset>
-            <legend>Biological Information</legend>
+    <form action="action.php" method="post" id="mainForm" enctype="multipart/form-data" >
+        <fieldset class="filed">
+            <legend>Genome Information</legend>
             <label for="Gname">Gene Name:</label><br>
             <input type="text" name="GName" id="GName" /><br>
 
@@ -15,24 +19,21 @@
             <input type="text" name="Organism" id="Organism" /><br>
 
             <label for="Organism"> Organism Discreption :</label><br>
-            <input type="text" name="OrgDes" id="OrgDes" /><br>
+            <textarea name="OrgDes" id="OrgDes" ></textarea><br>
+
+        </fieldset>   
+    
+        <fieldset class="filed">
+            <legend>Genome Sequence</legend>
+            <h2>Upload or enter the Genome Sequence.</h2>
+            <h4 for="uploadedfile">Select File :</h4>
+            
+            <input type="file" id="uploaded" name="uploadedfile" onchange="validateFile()"><br><br>
 
             <label for="GSeq"> Gene Sequence:</label><br>
-            <textarea name="GSeq" placeholder="Enter your Sequence"></textarea><br>
-            <input type="submit" name="Insert" id="Insert" value="Insert" /><br><br>
-        </fieldset>
-    
-    </form>
-    <form id="fastaFileForm" action="fastaAction.php" method="post" enctype="multipart/form-data" target="_blank">
-        <fieldset>
-            <h2>Upload File</h2>
-            <h4 for="uploadedfile">Select File :</h4>
-            <input type="file" id="uploaded" name="uploadedfile" onchange="validateFile()">
+            <textarea name="GSeq" placeholder="Enter your Sequence" id="GSeq" ></textarea><br>
 
-        
         </fieldset>
-    </form>
-    
     <div class="container">
         <h1> Choose what function you want to apply</h1>
             <input type="checkbox" name="Biological_Functions[]" id="1"
@@ -57,12 +58,22 @@
             <input type="checkbox" name="Biological_Functions[]" id="7"
                     value="Portein"><label for="7">Translate</label>
             
-        
+                <br><br><a href="functionsInfo.html"> For More information about functions </a><br><br>
+
         <hr />
-        <input type="reset" name="reset" value="Reset">
-        <input type="submit" id = "submit" name="submit" value="Submit" >
+        <div id="btnFunctions">
+        <input type="reset" name="reset" value="Reset" >
+        <input type="submit" id = "submit" name="submit" value="Submit" onclick="valid()" >
+        <input type="submit" id = "DBStat" name="DBStat" value="Data base staticals"  >
+        <input type="submit" id = "GetDB" name="GetDB" value="Show Data Base "  >
+      </div>
+
+
+
     </div>
 
+</form>
 
+</body>
     <script src="validate.js"></script>
 </html>

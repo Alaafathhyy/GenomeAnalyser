@@ -1,14 +1,26 @@
-let params = new URLSearchParams(location.search);
-let ID=params.get('ID')
-let name=params.get('name')
-document.getElementById("UserID").value=ID;
-    document.getElementById("UserID").innerHTML="Hello "+name+" !";
-    
-function validateFile(){
-    if (document.getElementById("uploaded").files.length > 0) {
-      document.getElementsByName("fasta_sequence")[0].disabled = true;
-      document.getElementById("list").value = "file";
-      alert("File Uploaded!");
-    }
-  
+function getFile(filePath) {
+  return filePath.substr(filePath.lastIndexOf('\\') + 1).split('.')[0];
+}
+
+
+function valid() {
+
+  let file = document.getElementById("uploaded");
+  if (document.getElementById("GSeq").value == "" && file.value == "") {
+    alert("please enter the sequence or upload")
+    event.preventDefault();
+    return ;
+
+  }
+  var filePath = file.value;
+  var allowedExtensions = /(\.fasta)$/i;
+  if (!allowedExtensions.exec(filePath)) {
+    alert("only fasta sequence are allow ")
+    file.value = '';
+    event.preventDefault();
+    return ;
+
+  }
+
+ 
 }

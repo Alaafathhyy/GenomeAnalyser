@@ -1,19 +1,26 @@
 <html>
 
-<form action="login.php" method="post" target="_self">
+<head>
+    <link href="styling.css" rel="stylesheet">
+    <title>Sign In</title>
+</head>
 
-    <!-- <label for="userName" >User Name:</label><br>
-    <input type="text" name="userName" id="userName"  /><br> -->
-
-    <label for="email" > Email:</label><br>
-    <input type="text" name="email" id="email" /><br>
-
-    <label for="password" > Password:</label><br>
-    <input type="password" name="password" id="password" /><br>
-    <button type="submit">SUMBIT</button>
-
-
-</form>
-
+<body>
+    <div class="login-box">
+        <h1>Welcome to Genome Analyser</h1>
+        <h2>Log In</h2>
+        <form action="login.php" method="post" target="_self">
+            <div class="user-box">
+                <input type="email" name="email" id="email" required/>
+                <label for="email"> Email</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="password" id="password" required/>
+                <label for="password"> Password</label><br>
+            </div>
+            <button type="submit"><span></span><span></span><span></span><span></span>SUMBIT</button>
+            <h4>You don't have an account ? <a href="signUp.html"> Sign Up</a></h4>
+        </form>
+</body>
 
 </html>

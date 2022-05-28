@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <link href="styling.css" rel="stylesheet">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <div class="login-box" style="padding: 30px;">
+        <h1>Welcome to Genome Analyser</h1>
+        <h2>Sign Up</h2>
+        <form action="signUp.php" method="post" target="_self">
+            <div class="user-box">
+                <input type="text" name="name" id="name" required maxlength="20">
+                <label for="name">Name <span style="color: red;">*</span></label>
+            </div>
+
+            <div class="user-box">
+                <input type="tel" name="phone" id="phone" required pattern="^01[0-2,5]{1}[0-9]{8}$" /><br>
+                <label for="phone">Phone Number <span style="color: red;">*</span><span style="color:gray ; font-size: 13px;"> Format: 01234567890 </span></label>
+            </div>
+
+            <div class="user-box">
+                <input type="text" name="email" id="email" required/>
+                <label for="email">Email <span style="color: red;">*</span></label>
+            </div>
+
+            <div class="user-box">
+                <input type="password" name="password" id="password" required /><br>
+                <label for="password">Password <span style="color: red;">*</span></label>
+            </div>
+
+            <button type="submit"><span></span><span></span><span></span><span></span>SUBMIT</button>
+            <h4>Already have an account ? <a href="index.html"> Sign In</a></h4>
+        </form>
+    </div>
+
+</body>
+
+
+</html>

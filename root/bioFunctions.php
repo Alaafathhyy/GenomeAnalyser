@@ -72,4 +72,6 @@ function DNAMeltingTemperature($sequence){
     $Temp = 2*$AT + 4*$GC;
     return $Temp;
 }
+
+
 ?>

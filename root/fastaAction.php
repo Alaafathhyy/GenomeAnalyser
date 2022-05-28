@@ -1,19 +1,30 @@
+
 <?php
 
-if ($_FILES['uploadedfile']['error'] == UPLOAD_ERR_OK              
-&& is_uploaded_file($_FILES['uploadedfile']['tmp_name'])) 
-{ 
-$file =  file_get_contents($_FILES['uploadedfile']['tmp_name']); 
-}
-$sequence = process_fasta($file);
+function getSeq()
+{
+    if (
+        $_FILES['uploadedfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['uploadedfile']['tmp_name'])
+    ) {
+        $file =  file_get_contents($_FILES['uploadedfile']['tmp_name']);
+        $sequence = process_fasta($file);
+        return $sequence;
+    } else if(is_uploaded_file($_FILES['uploadedfile']['tmp_name'])&& $_FILES['uploadedfile']['error'] != UPLOAD_ERR_OK) {
+        echo "<script>alert('Failed to load file!');
+    window.location.href='main.html';
+    </script>";
+    return false;
 
-echo $sequence;
+    }
+    return null;
+
+   
+}
 
 
 function process_fasta($fasta_sequence)
 {
     $fasta_lines = explode("\n", $fasta_sequence);
-    $header = "";
     $sequence = "";
     foreach ($fasta_lines as $line) {
         $line = trim($line);
@@ -25,5 +36,5 @@ function process_fasta($fasta_sequence)
         }
     }
 
-    echo $sequence;
+    return $sequence;
 }
