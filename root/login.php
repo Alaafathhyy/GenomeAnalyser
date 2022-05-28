@@ -21,6 +21,7 @@ if (!$result || $result->num_rows == 0) {
     $ID = $row["userID"];
     $name = $row["name"];
     $_SESSION['userID'] = $ID;
+    $_SESSION['userName']=$name;
     if ($row["password"] != $passworduser) {
 
         echo "<script>alert('Failed to login!');

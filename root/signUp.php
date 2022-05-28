@@ -3,8 +3,7 @@ include("db.php");
 $name=$_POST["name"];
 $password=$_POST["password"];
 $email=$_POST["email"];
-
-// $conn = new mysqli($servername,$username,$password,$dbname);
+$phone=$_POST["phone"];
 
 $sql="SELECT `userID`, `name`, `email`, `password` FROM `user` WHERE email='$email'";
 
@@ -17,7 +16,7 @@ if($result->num_rows > 0)
     exit();
 
 }
-$sql="INSERT INTO `user`( `name`, `email`, `password`) VALUES ('$name','$email','$password')";
+$sql="INSERT INTO `user`( `name`, `email`, `password`,phone) VALUES ('$name','$email','$password','$phone')";
 $res=$conn->query($sql);
 if(!$res)
 {

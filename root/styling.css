@@ -1,7 +1,3 @@
-html {
-    height: 100%;
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -9,10 +5,14 @@ body {
     /* background: linear-gradient(#141e30, #243b55); */
     background-image: url("deepgenomics-story-banner1-new.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+   background-size: cover;
+   background-position:center center;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    
 }
 
-.login-box {
+.login-box  {
     position: absolute;
     top: 50%;
     left: 25%;
@@ -191,3 +191,128 @@ body {
 .login-box .info {
     display: inline-block;
 }
+
+.all-body
+{
+    margin: auto;
+    color: white;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    width: 70%;
+    background: rgba(0, 0, 0, 0.882);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 20px;
+    padding: 3%;
+    margin-top: 2%;
+margin-bottom: 2%;
+}
+.all-body h1
+{
+    text-align: center;
+    color:  #03e9f4; 
+    font-size: 2.5rem;
+}
+.all-body h2
+{
+    color:  #03e9f4; 
+    font-size: 1.3rem;
+}
+.all-body h5 
+{
+    color:  white; 
+
+}
+.all-body h5 a
+{
+    color:   #03e8f4bd; 
+    font-weight: 300;
+    border-bottom: none;
+  text-decoration: none;
+
+}
+.all-body fieldset
+{
+    margin: 1.5%;
+    border-radius: 15px;
+}
+.all-body legend{
+    background: -webkit-linear-gradient(#eee, #03e9f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+.all-body label
+{
+    font-size: 1rem;
+}
+#btnFunctions
+{
+    text-align: center;
+}
+.all-body #reset:hover , #submit:hover , #DBStat:hover ,#GetDB:hover{
+    background: #03e8f4b2;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e8f4ce, 0 0 25px #03e8f4ce, 0 0 50px #03e8f4ce, 0 0 100px #03e8f4ce;
+}
+.all-body #reset , #submit , #DBStat ,#GetDB, input[type=file]::file-selector-button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e8f4bd;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+    background: none;
+    border: none;
+}
+.checked input
+{
+    margin-bottom:1% ;
+}
+.checked h3
+{
+    color:  #03e9f4; 
+    font-size: 1.3rem;
+}
+.all-body .filed
+{
+    padding: 3%;
+}
+.all-body .filed input , textarea {
+    width: 50%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+.all-body .filed #uploaded
+{
+    border-bottom: none;
+    padding: 0%;
+    margin-top: 0%;
+}
+.all-body .filed h4
+{
+    font-weight: 400;
+}
+.all-body .funcinfo h5
+{
+   font-size: 1.3rem;
+    font-weight: 500;
+    color:  #03e9f4; 
+
+}
+td, th { border: 1px solid #000000;}

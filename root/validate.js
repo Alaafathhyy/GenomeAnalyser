@@ -3,6 +3,7 @@ function getFile(filePath) {
 }
 
 
+
 function valid() {
 
   let file = document.getElementById("uploaded");
@@ -14,7 +15,8 @@ function valid() {
   }
   var filePath = file.value;
   var allowedExtensions = /(\.fasta)$/i;
-  if (!allowedExtensions.exec(filePath)) {
+ // alert(filePath);
+  if( file.value !=""&&!allowedExtensions.exec(filePath)) {
     alert("only fasta sequence are allow ")
     file.value = '';
     event.preventDefault();

@@ -1,79 +1,96 @@
 <html>
 
 <head>
-<h1> WELCOME !</h1>
+        <link href="styling.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap"
+                rel="stylesheet">
+        <title>Genome Analyser </title>
 </head>
+
 <body>
-    <a href="info.html?id"> Update Personal info</a><br><br>
+        <div class="all-body">
+                <h1> WELCOME !
 
-    <form action="action.php" method="post" id="mainForm" enctype="multipart/form-data" >
-        <fieldset class="filed">
-            <legend>Genome Information</legend>
-            <label for="Gname">Gene Name:</label><br>
-            <input type="text" name="GName" id="GName" /><br>
+                        
+                </h1>
+                <br><br>
 
-            <label for="GDisc"> Gene Discreption:</label><br>
-            <input type="text" name="GDes" id="GDes" /><br>
+                <form action="action.php" method="post" id="mainForm" enctype="multipart/form-data">
+                        <fieldset class="filed">
+                                <legend>Genome Information</legend>
+                                <label for="Gname">Gene Name:</label><br>
+                                <input type="text" name="GName" id="GName" /><br>
 
-            <label for="Organism"> Organism :</label><br>
-            <input type="text" name="Organism" id="Organism" /><br>
+                                <label for="GDisc"> Gene Discreption:</label><br>
+                                <input type="text" name="GDes" id="GDes" /><br>
 
-            <label for="Organism"> Organism Discreption :</label><br>
-            <textarea name="OrgDes" id="OrgDes" ></textarea><br>
+                                <label for="Organism"> Organism :</label><br>
+                                <input type="text" name="Organism" id="Organism" /><br>
 
-        </fieldset>   
-    
-        <fieldset class="filed">
-            <legend>Genome Sequence</legend>
-            <h2>Upload or enter the Genome Sequence.</h2>
-            <h4 for="uploadedfile">Select File :</h4>
-            
-            <input type="file" id="uploaded" name="uploadedfile" onchange="validateFile()"><br><br>
+                                <label for="Organism"> Organism Discreption :</label><br>
+                                <textarea name="OrgDes" id="OrgDes"></textarea><br>
 
-            <label for="GSeq"> Gene Sequence:</label><br>
-            <textarea name="GSeq" placeholder="Enter your Sequence" id="GSeq" ></textarea><br>
+                        </fieldset>
 
-        </fieldset>
-    <div class="container">
-        <h1> Choose what function you want to apply</h1>
-            <input type="checkbox" name="Biological_Functions[]" id="1"
-                    value="GC"><label for="1">GC percent </label>
-            
-            <input type="checkbox" name="Biological_Functions[]" id="2"
-                    value="Reversee"><label for="2">Reversee</label>
-            
-            <input type="checkbox" name="Biological_Functions[]" id="3"
-                    value="Complement"><label for="3">Complement</label>
-            
-            <input type="checkbox" name="Biological_Functions[]" id="4"
-                    value="Reverse_complement"><label for="4">Reverse_complement</label>
-            
-        
-            <input type="checkbox" name="Biological_Functions[]" id="5"
-                    value="Temperature"><label for="5">Temperature</label>
-            
-            <input type="checkbox" name="Biological_Functions[]" id="6"
-                    value="RNA"><label for="6">Transcribe</label>
-            
-            <input type="checkbox" name="Biological_Functions[]" id="7"
-                    value="Portein"><label for="7">Translate</label>
-            
-                <br><br><a href="functionsInfo.html"> For More information about functions </a><br><br>
+                        <fieldset class="filed">
+                                <legend>Genome Sequence</legend>
+                                <h2>Upload or enter the Genome Sequence.</h2>
+                                <h4 for="uploadedfile">Select File :</h4>
+     
+                                <input type="file" id="uploaded" name="uploadedfile" onchange="validateFile()"><br><br>
 
-        <hr />
-        <div id="btnFunctions">
-        <input type="reset" name="reset" value="Reset" >
-        <input type="submit" id = "submit" name="submit" value="Submit" onclick="valid()" >
-        <input type="submit" id = "DBStat" name="DBStat" value="Data base staticals"  >
-        <input type="submit" id = "GetDB" name="GetDB" value="Show Data Base "  >
-      </div>
+                                <label for="GSeq"> Gene Sequence:</label><br>
+                                <textarea name="GSeq" placeholder="Enter your Sequence" id="GSeq"></textarea><br>
+
+                        </fieldset>
 
 
+                        <div class="checked">
+                                <fieldset>
+                                        <legend>Genome Functions</legend>
+                                        <h3> Choose what function you want to apply</h3>
+                                        <input type="checkbox" name="Biological_Functions[]" id="1" value="GC"><label
+                                                for="1">GC percent </label>
+                                        <br>
+                                        <input type="checkbox" name="Biological_Functions[]" id="2"
+                                                value="Reversee"><label for="2">Reversee</label>
+                                        <br>
+                                        <input type="checkbox" name="Biological_Functions[]" id="3"
+                                                value="Complement"><label for="3">Complement</label>
+                                        <br>
+                                        <input type="checkbox" name="Biological_Functions[]" id="4"
+                                                value="Reverse_complement"><label for="4">Reverse_complement</label>
 
-    </div>
+                                        <br>
+                                        <input type="checkbox" name="Biological_Functions[]" id="5"
+                                                value="Temperature"><label for="5">Temperature</label>
+                                        <br>
+                                        <input type="checkbox" name="Biological_Functions[]" id="6" value="RNA"><label
+                                                for="6">Transcribe</label>
+                                        <br>
+                                        <input type="checkbox" name="Biological_Functions[]" id="7"
+                                                value="Portein"><label for="7">Translate</label>
+                                </fieldset>
 
-</form>
+
+                                <div id="btnFunctions">
+                                        <input type="submit" id="submit" name="submit" value="Submit" onclick="valid()">
+                                        <input type="submit" id="DBStat" name="DBStat" value="Data base staticals">
+                                        <input type="submit" id="GetDB" name="GetDB" value="Show Data Base ">
+                                        <input type="reset" id="reset" name="reset" value="Reset">
+                                </div>
+
+
+                        </div>
+
+                </form>
+
+                <h5>Want to Update Personal Info?<a href="info.html?id"> Click here..</a></h5>
+                <h5>For More Information About Functions<a href="functionsInfo.html">Click here.. </a><h5>
+
+        </div>
 
 </body>
-    <script src="validate.js"></script>
+<script src="validate.js"></script>
+
 </html>
