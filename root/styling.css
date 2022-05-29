@@ -313,6 +313,16 @@ margin-bottom: 2%;
    font-size: 1.3rem;
     font-weight: 500;
     color:  #03e9f4; 
-
 }
-td, th { border: 1px solid #000000;}
+.table
+{
+    border: 1px solid; 
+    margin:auto ; 
+    text-align:center;
+    padding: 10px;
+}
+.table td, th
+{
+    border: 1px solid; 
+    padding:6px;
+}

@@ -27,16 +27,7 @@ function Main()
       $sequence = $_POST["GSeq"];
    else 
     $sequence = getSeq();
-
-   if (isset($_POST['Biological_Functions'])) {
-      echo '<h1> all the details of the current sequence </h1>';
-
-      insertToDB($conn);
-      getBioFunctions($sequence);
-      echo " The Reroced inserted succefuly";
-      die;
-    
-   }  if (isset($_POST['DBStat'])) {
+    if (isset($_POST['DBStat'])) {
       echo "<h1> all the statistics of the Data Base </h1>";
 
       DBStatistical($conn);
@@ -48,8 +39,18 @@ function Main()
       die;
 
    }
-   
-    echo "<script>alert('No Thing selected to change!');
+   if (isset($_POST['Biological_Functions'])) {
+      echo '<h1> all the details of the current sequence </h1>';
+
+      insertToDB($conn);
+      getBioFunctions($sequence);
+      echo " The Reroced inserted succefuly";
+      die;
+    
+   } 
+   insertToDB($conn);
+
+    echo "<script>alert('Record inserted successufly !');
    window.location.href='main.html';
    </script>";
 }
@@ -58,7 +59,9 @@ function GetMaxContributer($conn)
 $sql="SELECT name from user right join genome on user.userID=genome.userID order by count(name) asc";
 $res=$conn->query($sql);
 $row=$res->fetch_assoc();
-echo "<br><h4>the most contributor was : " . $row["name"] ." </h4>";
+echo "<br><h4  style=color:#03e9f4;>the most contribution was  by:  </h4>";
+$name=$row["name"];
+echo " <p 1px solid> $name</p>";
 
 
 }
@@ -91,16 +94,19 @@ function insertToDB($conn)
 }
 function getUsers($conn)
 {
-$sql="select name from user ";
+$sql="select name,email from user ";
 $result= $conn->query($sql);
 if ($result->num_rows > 0) {
    echo '<h3  style="color:#03e9f4;"> User Names that registerd : </h3>';
-   echo '<table  style="border: 1px solid; margin:auto ; text-align:center;">
+   echo '<table class="table">
     <tr>
-    <th style="border: 1px solid; padding:6px;">User Name  </th>
+    <th>User Name  </th>
+    <th>email  </th>
     </tr> ';
    while ($row = $result->fetch_assoc()) {
-      echo "<tr><td>" . $row["name"] ."</td></tr>";
+      echo "<tr><td>" . $row["name"] ."</td>";
+      echo "<td>" . $row["email"] ."</td></tr>";
+
    }
    echo "</table>";
 }
@@ -113,11 +119,13 @@ function GroupByUser($conn)
    $result = $conn->query($sql);
 
    if ($result->num_rows > 0) {
-      echo '<h3 style="color:#03e9f4;"> User Names that registerd : </h3>';
-      echo '<table  style="border: 1px solid; margin:auto ; text-align:center;">
+      echo '<h3 style="color:#03e9f4;"> User Name and Count of Genomes were sumbitted by : </h3>';
+      echo '<table class="table">
        <tr>
-       <th style="border: 1px solid; padding:6px;">User Name  </th>
-       </tr> ';
+       <th>User Name  </th>
+       <th>Number Of Genes  </th>
+       </tr> '
+       ;
       while ($row = $result->fetch_assoc()) {
          echo "<tr><td>" . $row["name"] . "</td><td>" . $row["UserCnt"] . "</td></tr>";
       }
@@ -132,10 +140,10 @@ function GroupByOrgan($conn)
 
    if ($result->num_rows > 0) {
       echo '<h3 style="color:#03e9f4;"> Organ Names and number of genes of each organ: </h3>';
-      echo '<table style="border: 1px solid; margin:auto ; text-align:center;">
+      echo '<table class="table">
       <tr>
-      <th style="border: 1px solid; padding:6px;">Organ Name </th>
-      <th style="border: 1px solid; padding:6px;">Number of Genes </th>
+      <th>Organ Name </th>
+      <th>Number of Genes </th>
       </tr> ';
       while ($row = $result->fetch_assoc()) {
          echo "<tr><td>" . $row["OrgName"] . "</td><td>" . $row["OrgCnt"] . "</td></tr>";
@@ -163,13 +171,13 @@ function getDB($conn)
    if ($result->num_rows > 0) {
       echo '<h3 style="color:#03e9f4;"> SQL Select Results: </h3>';
       echo
-      ' <table style="border: 1px solid; margin:auto ; text-align:center;">
+      ' <table class="table">
        <tr>
-       <th  style="border: 1px solid; padding:6px;">Gene Name</th>
-       <th  style="border: 1px solid; padding:6px;">Gene Sequence</th> 
-      <th  style="border: 1px solid; padding:6px;">Genome Discription </th> 
-      <th  style="border: 1px solid; padding:6px;">Organ Name </th> 
-      <th  style="border: 1px solid; padding:6px;">Sumbited By</th> 
+       <th>Gene Name</th>
+       <th>Gene Sequence</th> 
+      <th>Genome Description </th> 
+      <th>Organ Name </th> 
+      <th>Sumbited By</th> 
       </tr> ';
       while ($row = $result->fetch_assoc()) {
          echo "<tr><td>" . $row["GName"] . "</td><td>" . $row["GSeq"] . "</td>
@@ -183,70 +191,70 @@ function getDB($conn)
 }
 function printTable($GName, $sequence, $GDisc, $Organ, $OrgDes, $percent, $Temperature, $Reverse, $RNA, $Portein, $Complement, $Reverse_complement)
 {
-   echo '<table id="t1" style="border: 1px solid; margin:auto ; text-align:center; width:100%;" >
+   echo '<table id="t1" class="table" >
    <h1><u>Sequence info</u></h1>';
 
 
    echo '<tr>';
-   echo ' <td  style="border: 1px solid; padding:6px;">Sequence Name</td>';
+   echo ' <td>Sequence Name</td>';
    echo "<td>  $GName</td>";
    echo '</tr>';
 
 
    echo '<tr>';
-   echo ' <td  style="border: 1px solid; padding:6px;">Sequence</td>';
+   echo ' <td>Sequence</td>';
    echo "<td>  $sequence</td>";
    echo '</tr>';
 
    echo '<tr>';
-   echo ' <td  style="border: 1px solid; padding:6px;">Genome Discription </td>';
+   echo ' <td>Genome Description </td>';
    echo "<td> $GDisc</td>";
    echo '</tr>';
 
 
    echo '<tr>';
-   echo ' <td  style="border: 1px solid; padding:6px;">Organ</td>';
+   echo ' <td>Organ</td>';
    echo "<td> $Organ</td>";
    echo '</tr>';
 
    echo '<tr>';
-   echo ' <td  style="border: 1px solid; padding:6px;">Organ Discription</td>';
+   echo ' <td>Organ Description</td>';
    echo "<td> $OrgDes</td>";
    echo '</tr>';
 
 
    echo '<tr>';
-   echo ' <td  style="border: 1px solid; padding:6px;">GC percent</td>';
+   echo ' <td>GC percent</td>';
    echo "<td>  $percent</td>";
    echo '</tr>';
 
    echo '<tr>';
-   echo ' <td  style="border: 1px solid; padding:6px;">Reversee</td>';
+   echo ' <td>Reversee</td>';
    echo "<td>  $Reverse</td>";
    echo '</tr>';
 
    echo '<tr>';
-   echo ' <td  style="border: 1px solid; padding:6px;">Complement</td>';
+   echo ' <td>Complement</td>';
    echo "<td>  $Complement</td>";
    echo '</tr>';
 
    echo '<tr>';
-   echo ' <td  style="border: 1px solid; padding:6px;">Reverse Complement</td>';
+   echo ' <td>Reverse Complement</td>';
    echo "<td>  $Reverse_complement</td>";
    echo '</tr>';
 
    echo '<tr>';
-   echo ' <td  style="border: 1px solid; padding:6px;">Temperature</td>';
+   echo ' <td>Temperature</td>';
    echo "<td> $Temperature</td>";
    echo '</tr>';
 
    echo '<tr>';
-   echo ' <td  style="border: 1px solid; padding:6px;">RNA</td>';
+   echo ' <td>RNA</td>';
    echo "<td>  $RNA</td>";
    echo '</tr>';
 
    echo '<tr>';
-   echo ' <td  style="border: 1px solid; padding:6px;">Portein</td>';
+   echo ' <td>Portein</td>';
    echo "<td> $Portein</td>";
    echo "</tr></table>";
 }

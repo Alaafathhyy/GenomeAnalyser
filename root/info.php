@@ -1,15 +1,36 @@
 <?php
 session_start();
+
 include ("db.php");
+
 $newName=$_POST["name"];
 $newPassword=$_POST["password"];
 $newEmail=$_POST["email"];
 $userID=$_SESSION["userID"];
 $oldPass=$_POST["oldpassword"];
 
+if(isset($_POST["delAcc"]))
+ {
+     $sql="DELETE FROM `user` WHERE userID='$userID'";
+     $res=$conn->query($sql);
+     if(!$res)
+     {
+        echo "<script>alert('Failed to delete the account!');
+        window.location.href='info.html';
+        </script>";
+    
+     }
+     else {
+        echo "<script>alert('Account deleted Successfuly!');
+        window.location.href='index.html';
+        </script>";
+     }
+
+ }
 $sql="select password from user WHERE userID='$userID' ";
 $res=$conn->query($sql);
 $row=$res->fetch_assoc();
+
 if($row["password"]!=$oldPass&&$newPassword!='')
 {
     echo "<script> alert('please enter the old password correctly');
@@ -66,18 +87,6 @@ else if(!isset($_POST["delAcc"]))
     </script>";
 
 }
- if(isset($_POST["delAcc"]))
- {
-     $sql="DELETE FROM `user` WHERE userID='$userID'";
-     $res=$conn->query($sql);
-     if(!$res)
-     {
-        echo "<script>alert('Failed to delete the account!');
-        window.location.href='info.html';
-        </script>";
-    
-     }
-
- }
+ 
 
 ?>
