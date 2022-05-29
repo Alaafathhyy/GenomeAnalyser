@@ -1,10 +1,10 @@
-# BioServer
- A website for applying a biological functions on DNA sequence
+# 🧬 Genome Analyser 🧬
+ A website for applying a biological functions on DNA sequence 
 
 ## Functions include:-
 * Translate 
 * Transcribe
-* GC
+* GC Prectenage 
 * Melting Temprature 
 * Reverse
 * Reverse Complement
